@@ -76,7 +76,7 @@ curl -X POST \
 curl -X POST \
   -H 'Content-type: application/json' \
   -d '{"html":"<html><body><h1>HTML Test</h1><p>Text test</p></body></html>"}' \
-  --output file.jpg http:localhost:8080/jpg
+  --output file.jpg http://localhost:8080/jpg
 
 ```
 

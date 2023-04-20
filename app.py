@@ -1,10 +1,7 @@
-from flask import Flask, Response, request, jsonify
-from werkzeug.utils import secure_filename
-from werkzeug.datastructures import  FileStorage
-from paste.translogger import TransLogger
-import pdfkit
 import cherrypy
-import json
+import pdfkit
+from flask import Flask, Response, request
+from paste.translogger import TransLogger
 
 app = Flask(__name__)
 
@@ -30,9 +27,9 @@ def handle_request(config):
     options = request.values.getlist("options", type=float)
 
     if "url" in request.get_json():
-        print("URL provided: " + request.get_json()['url'])
+        print("URL provided: " + request.get_json()["url"])
         pdf = pdfkit.from_url(
-            str(request.get_json()['url']),
+            str(request.get_json()["url"]),
             output_path=False,
             configuration=config,
             options=options,
